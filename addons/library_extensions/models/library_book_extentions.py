@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api
 
-class BookCategory(models.Model):
+class LibraryBook(models.Model):
     _inherit = "library.book"
 
     author_id = fields.Many2one(comodel_name="res.partner", required=True)
