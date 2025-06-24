@@ -21,6 +21,25 @@ We use Docker for our development environment. Ensure Docker is installed on you
 
 You should also be able to set up an Odoo container using the [odoo:17](https://hub.docker.com/_/odoo) image. Refer to the usage guide on the page for detailed instructions.
 
+## Usage
+
+To start the Odoo service using Docker Compose, run:
+
+```bash
+docker compose up
+```
+
+Make sure you are in the directory containing the `docker-compose.yml` file.
+
+Navigate to the local Odoo instance at [localhost:8069](http://localhost:8069). Go through the basic setup process to initialize the Odoo database.
+
+Then, install and activate the `Library Extensions` module from the apps list. This will also install the `Library` module.
+
+You may now navigate to the `Library` module by clicking at the drop down menu button from the top navigation bar. 
+
+
+
+
 ## Assessment Overview
 
 This assessment involves creating a custom Odoo module for a simple library management system. An existing module in this repository can be used as a starting point. Refer to: [library](library).

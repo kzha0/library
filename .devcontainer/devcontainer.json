@@ -1,0 +1,25 @@
+{
+    "name": "odoo-library-management-system",
+    "forwardPorts": [8069],
+    "remoteUser": "odoo",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "visualstudioexptteam.vscodeintellicode"
+            ],
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "odoo",
+    "workspaceFolder": "/mnt/extra-addons",
+    "shutdownAction": "stopCompose"
+}
