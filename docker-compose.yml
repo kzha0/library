@@ -1,0 +1,23 @@
+name: "odoo-library-management-system"
+services:
+  odoo:
+    image: odoo:17
+    depends_on:
+      - db
+    volumes:
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    ports:
+      - "8069:8069"
+
+  db:
+    image: postgres:15
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_USER: odoo
+
+volumes:
+  db-data:
