@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="library_book_category_view_tree" model="ir.ui.view">
+        <field name="name">library.book.category.view.tree</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+            <tree string="Book Categories">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="library_book_category_view_form" model="ir.ui.view">
+        <field name="name">library.book.category.view.form</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="library_book_category_action" model="ir.actions.act_window">
+        <field name="name">Book Category</field>
+        <field name="res_model">library.book.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="library_book_category_menu"
+        name="Book Category"
+        action="library_book_category_action"
+        parent="library.library_menu_main"
+        sequence="15"/>
+
+    <!-- Inherit and extend the book tree view -->
+    <record id="library_book_view_tree_inherit_ext" model="ir.ui.view">
+        <field name="name">library.book.view.tree.inherit.ext</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="isbn_13" position="after">
+                <field name="author_id"/>
+                <field name="category_id" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit and extend the book form view -->
+    <record id="library_book_view_form_inherit_ext" model="ir.ui.view">
+        <field name="name">library.book.view.form.inherit.ext</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_form"/>
+        <field name="arch" type="xml">
+            <field name="isbn_13" position="after">
+                <field name="author_id"/>
+                <field name="category_id" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+</odoo>
