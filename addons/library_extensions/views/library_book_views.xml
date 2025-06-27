@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit and extend the book tree view -->
+    <record id="library_book_view_tree_inherit_ext" model="ir.ui.view">
+        <field name="name">library.book.view.tree.inherit.ext</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="isbn_13" position="after">
+                <field name="author_id"/>
+                <field name="category_id" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit and extend the book form view -->
+    <record id="library_book_view_form_inherit_ext" model="ir.ui.view">
+        <field name="name">library.book.view.form.inherit.ext</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library.library_book_view_form"/>
+        <field name="arch" type="xml">
+            <field name="isbn_13" position="after">
+                <field name="author_id"/>
+                <field name="category_id" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+</odoo>
